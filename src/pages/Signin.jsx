@@ -1,4 +1,9 @@
+import { useGoogleLogin } from '@react-oauth/google';
+import { Link } from 'react-router-dom';
 const Signin = () => {
+  const googleLogin = useGoogleLogin({
+    onSuccess: tokenResponse => console.log(tokenResponse),
+  });
   return (
     <>
       <section className="login-sec">
@@ -8,22 +13,22 @@ const Signin = () => {
             <form>
               <div className="apply-btn">
                 <div className="btn-play">
-                  <a href="">
+                  <Link href="javascript:void(0)" onClick={()=>googleLogin()}>
                     <img src="img/google.png" alt="" />
-                    Continue with Google
-                  </a>
+                       Continue with Google
+                  </Link>
                 </div>
                 <div className="btn-play">
-                  <a href="">
+                  <Link href="">
                     <img src="img/fb.png" alt="" />
                     Continue with Facebook
-                  </a>
+                  </Link>
                 </div>
                 <div className="btn-play">
-                  <a href="">
+                  <Link href="">
                     <img src="img/apple.png" alt="" />
                     Continue with Apple
-                  </a>
+                  </Link>
                 </div>
                 <div className="checkbox_box">
                    <input type="checkbox" id="html" />
